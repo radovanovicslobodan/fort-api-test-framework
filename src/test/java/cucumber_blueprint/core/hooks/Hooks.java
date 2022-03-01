@@ -13,6 +13,7 @@ public class Hooks {
 
     @Before(order = 0)
     public void beforeScenario(Scenario scenario) {
+        String something = "ABC";
         System.out.println("Scenario: " + scenario.getName() + " started");
     }
 
