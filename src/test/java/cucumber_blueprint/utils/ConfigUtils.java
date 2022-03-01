@@ -16,11 +16,16 @@ public class ConfigUtils {
         return configProps;
     }
 
+    public static String getDriverType() throws IOException {
+        return getConfig().getProperty("driverType");
+    }
+
     public static String getBaseUri() throws IOException {
         return getConfig().getProperty("baseUri");
     }
 
     public static String getUrl(String path) throws IOException {
-        return getConfig().getProperty("baseUri") + path;
+        String url = getConfig().getProperty("baseUri") + path;
+        return getConfig().getProperty("baseUri") + "/#/" + path;
     }
 }
