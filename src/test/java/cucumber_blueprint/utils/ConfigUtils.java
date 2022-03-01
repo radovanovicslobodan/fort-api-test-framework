@@ -2,17 +2,16 @@ package cucumber_blueprint.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class ConfigUtils {
 
     public static Properties getConfig() throws IOException {
 
-        String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-        String configPath = rootPath + "config.properties";
-
+        InputStream input = new FileInputStream("src/test/resources/config.properties");
         Properties configProps = new Properties();
-        configProps.load(new FileInputStream(configPath));
+        configProps.load(input);
 
         return configProps;
     }
