@@ -8,34 +8,34 @@ import io.cucumber.java.en.When;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 
+import java.io.IOException;
+
+import static cucumber_blueprint.utils.ConfigUtils.getUrl;
+
 public class LoginSteps extends BaseUiSteps {
 
     @Inject
-    WebDriver driver;
-
-    @Inject
-    SoftAssertions assertions;
+    public LoginSteps(WebDriver driver, SoftAssertions assertions) {
+        super(driver, assertions);
+    }
 
     @Inject
     LoginPage loginPage;
 
-    @Given("^User is not logged in$")
+    @Given("User is not logged in")
     public void userIsNotLoggedIn() {
-        driver.get("http://webapp.inflamco.test.s3-website-us-east-1.amazonaws.com");
+        driver.manage().deleteAllCookies();
+    }
+
+    @When("User navigates to {string} page")
+    public void userNavigatesToPage(String path) throws IOException {
+        driver.get(getUrl(path));
+    }
+
+    @Then("Login page fields are displayed")
+    public void loginPageFieldsAreDisplayed() {
         assertions.assertThat(loginPage.checkUserNameExist());
         assertions.assertThat(loginPage.checkPasswordExist());
         assertions.assertAll();
-    }
-
-    @When("^User navigates to login page$")
-    public void userNavigatesToLoginPage() {
-        System.out.println("User navigates to login page\n");
-        assertions.assertThat(true);
-    }
-
-    @Then("^Login page fields are displayed$")
-    public void loginPageFieldsAreDisplayed() {
-        System.out.println("Login page fields are displayed\n");
-        assertions.assertThat(true);
     }
 }

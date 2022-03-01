@@ -8,7 +8,6 @@ public class AppModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        System.out.println("inside POM Module");
         bind(WebDriver.class).to(LazyDriver.class);
     }
 }
