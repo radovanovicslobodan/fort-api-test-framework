@@ -8,8 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
-    WebDriver driver;
-
     @FindBy(css = "div[data-testid='loginInputUsername']")
     public WebElement username;
 
@@ -18,7 +16,6 @@ public class LoginPage {
 
     @Inject
     public LoginPage(WebDriver driver){
-        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 
