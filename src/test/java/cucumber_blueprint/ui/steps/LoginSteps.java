@@ -14,10 +14,10 @@ import static cucumber_blueprint.utils.ConfigUtils.getUrl;
 
 public class LoginSteps extends BaseUiSteps {
 
-    @Inject
-    public LoginSteps(WebDriver driver, SoftAssertions assertions) {
-        super(driver, assertions);
-    }
+//    @Inject
+//    public LoginSteps(WebDriver driver, SoftAssertions assertions) {
+//        super(driver, assertions);
+//    }
 
     @Inject
     LoginPage loginPage;

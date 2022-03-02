@@ -24,7 +24,6 @@ public class SharedDriver implements WebDriver{
     private WebDriver delegate;
     private String driverType;
 
-
     private WebDriver getDelegate() {
 
         try {
