@@ -1,3 +1,4 @@
+@ui @regression
 Feature: Test
 
   Scenario:Check Logo test wikipedia
