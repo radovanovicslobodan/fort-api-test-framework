@@ -8,13 +8,16 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
+    @Inject
+    WebDriver driver;
+
     @FindBy(css = "div[data-testid='loginInputUsername']")
     public WebElement username;
 
     @FindBy(css = "div[data-testid='loginInputPassword']")
     public WebElement password;
 
-    @Inject
+//    @Inject
     public LoginPage(WebDriver driver){
         PageFactory.initElements(driver,this);
     }
