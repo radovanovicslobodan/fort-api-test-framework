@@ -25,7 +25,6 @@ public class ConfigUtils {
     }
 
     public static String getUrl(String path) throws IOException {
-        String url = getConfig().getProperty("baseUri") + path;
         return getConfig().getProperty("baseUri") + "/#/" + path;
     }
 }
