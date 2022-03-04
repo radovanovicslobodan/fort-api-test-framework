@@ -11,10 +11,4 @@ public abstract class BaseUiSteps {
 
     @Inject
     SoftAssertions assertions;
-
-//    @Inject
-//    public BaseUiSteps(WebDriver driver, SoftAssertions assertions) {
-//        this.driver = driver;
-//        this.assertions = assertions;
-//    }
 }
