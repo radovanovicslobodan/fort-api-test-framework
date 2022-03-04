@@ -10,8 +10,8 @@ import org.assertj.core.api.SoftAssertions;
 
 public class TestSteps extends BaseUiSteps {
 
-    @Inject
-    SoftAssertions assertions;
+//    @Inject
+//    SoftAssertions assertions;
 
     @Inject
     GooglePage googlePage;
