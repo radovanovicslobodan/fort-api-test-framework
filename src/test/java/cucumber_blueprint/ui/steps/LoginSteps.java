@@ -5,19 +5,12 @@ import cucumber_blueprint.ui.pages.LoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.assertj.core.api.SoftAssertions;
-import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
 
 import static cucumber_blueprint.utils.ConfigUtils.getUrl;
 
 public class LoginSteps extends BaseUiSteps {
-
-//    @Inject
-//    public LoginSteps(WebDriver driver, SoftAssertions assertions) {
-//        super(driver, assertions);
-//    }
 
     @Inject
     LoginPage loginPage;

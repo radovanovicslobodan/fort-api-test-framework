@@ -6,12 +6,8 @@ import cucumber_blueprint.ui.pages.SpotifyPage;
 import cucumber_blueprint.ui.pages.WikipediaPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.assertj.core.api.SoftAssertions;
 
 public class TestSteps extends BaseUiSteps {
-
-//    @Inject
-//    SoftAssertions assertions;
 
     @Inject
     GooglePage googlePage;
