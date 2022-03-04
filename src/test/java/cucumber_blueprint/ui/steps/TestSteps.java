@@ -6,8 +6,12 @@ import cucumber_blueprint.ui.pages.SpotifyPage;
 import cucumber_blueprint.ui.pages.WikipediaPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.assertj.core.api.SoftAssertions;
 
 public class TestSteps extends BaseUiSteps {
+
+    @Inject
+    SoftAssertions assertions;
 
     @Inject
     GooglePage googlePage;
@@ -22,27 +26,29 @@ public class TestSteps extends BaseUiSteps {
     public void openWikipediaPage() {
         driver.get("https://www.wikipedia.org/");
     }
+
     @Then("Wikipedia logo is present")
     public void checkWikipediaLogo() {
-        wikipediaPage.checkLogo().isDisplayed();
-        wikipediaPage.checkLogo().isEnabled();
+        assertions.assertThat(wikipediaPage.checkLogo().isDisplayed() && wikipediaPage.checkLogo().isEnabled());
     }
+
     @When("Google page is opened")
     public void openGooglePage() {
         driver.get("https://www.google.com/");
     }
+
     @Then("Google logo is present")
     public void checkGoogleLogo() {
-        googlePage.checkLogo().isDisplayed();
-        googlePage.checkLogo().isEnabled();
+        assertions.assertThat(googlePage.checkLogo().isDisplayed() && googlePage.checkLogo().isEnabled());
     }
+
     @When("Spotify page is opened")
     public void openSpotifyPage() {
         driver.get("https://open.spotify.com/");
     }
+
     @Then("Spotify logo is present")
     public void checkSpotifyLogo() {
-        spotifyPage.checkLogo().isDisplayed();
-        spotifyPage.checkLogo().isEnabled();
+        assertions.assertThat(spotifyPage.checkLogo().isDisplayed() && spotifyPage.checkLogo().isEnabled()).isTrue();
     }
 }

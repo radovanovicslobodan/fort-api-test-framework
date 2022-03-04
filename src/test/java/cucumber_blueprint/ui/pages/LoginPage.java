@@ -5,8 +5,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
+
+    @Inject
+    WebDriverWait wait;
+
+    @Inject
+    public LoginPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
 
     @FindBy(css = "div[data-testid='loginInputUsername']")
     public WebElement username;
@@ -14,16 +24,11 @@ public class LoginPage {
     @FindBy(css = "div[data-testid='loginInputPassword']")
     public WebElement password;
 
-    @Inject
-    public LoginPage(WebDriver driver){
-        PageFactory.initElements(driver,this);
-    }
-
     public boolean checkUserNameExist() {
-        return username.isDisplayed();
+        return wait.until(ExpectedConditions.visibilityOf(username)).isDisplayed();
     }
 
     public boolean checkPasswordExist() {
-        return password.isDisplayed();
+        return wait.until(ExpectedConditions.visibilityOf(password)).isDisplayed();
     }
 }
