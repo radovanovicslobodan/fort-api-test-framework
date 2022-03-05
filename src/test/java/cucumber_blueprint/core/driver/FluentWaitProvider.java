@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.FluentWait;
 
-import java.time.Duration;
-
 public class FluentWaitProvider implements Provider<FluentWait> {
 
     @Inject
