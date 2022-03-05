@@ -25,7 +25,9 @@ public class TestSteps extends BaseUiSteps {
 
     @Then("Wikipedia logo is present")
     public void checkWikipediaLogo() {
-        assertions.assertThat(wikipediaPage.checkLogo().isDisplayed() && wikipediaPage.checkLogo().isEnabled());
+        assertions.assertThat(wikipediaPage.checkLogo().isDisplayed());
+        assertions.assertThat(wikipediaPage.checkLogo().isEnabled());
+        assertions.assertAll();
     }
 
     @When("Google page is opened")
@@ -35,7 +37,9 @@ public class TestSteps extends BaseUiSteps {
 
     @Then("Google logo is present")
     public void checkGoogleLogo() {
-        assertions.assertThat(googlePage.checkLogo().isDisplayed() && googlePage.checkLogo().isEnabled());
+        assertions.assertThat(googlePage.checkLogo().isDisplayed());
+        assertions.assertThat(googlePage.checkLogo().isEnabled());
+        assertions.assertAll();
     }
 
     @When("Spotify page is opened")
@@ -45,6 +49,8 @@ public class TestSteps extends BaseUiSteps {
 
     @Then("Spotify logo is present")
     public void checkSpotifyLogo() {
-        assertions.assertThat(spotifyPage.checkLogo().isDisplayed() && spotifyPage.checkLogo().isEnabled()).isTrue();
+        assertions.assertThat(spotifyPage.checkLogoFluent().isDisplayed());
+        assertions.assertThat(spotifyPage.checkLogoFluent().isEnabled());
+        assertions.assertAll();
     }
 }
