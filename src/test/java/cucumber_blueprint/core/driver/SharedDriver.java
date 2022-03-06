@@ -1,6 +1,7 @@
 package cucumber_blueprint.core.driver;
 
 import io.cucumber.guice.ScenarioScoped;
+import io.cucumber.java.After;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +20,7 @@ import java.util.Set;
 import static cucumber_blueprint.utils.ConfigUtils.getDriverType;
 
 @ScenarioScoped
-public class SharedDriver implements WebDriver{
+public class SharedDriver implements WebDriver {
 
     private WebDriver delegate;
     private String driverType;
@@ -67,6 +68,14 @@ public class SharedDriver implements WebDriver{
 
         System.out.println("DELEGATE " + delegate);
         return delegate;
+    }
+
+    @After
+    public void tearDown() {
+        if (delegate != null) {
+            delegate.manage().deleteAllCookies();
+            delegate.quit();
+        }
     }
 
     @Override
