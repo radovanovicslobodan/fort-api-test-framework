@@ -18,8 +18,9 @@ ext {
     testngVersion = '7.5'
     cucumberVersion = '7.2.3'
     seleniumVersion = '4.1.1'
-    webdrivermanagerVersion = '5.0.3'
-    lombokVersion = '1.18.20'
+    webdrivermanagerVersion = '5.1.0'
+    restAssuredVersion = '4.5.0'
+    lombokVersion = '1.18.22'
     slf4jVersion = '1.7.36'
     gherkinVersion = '22.0.0'
     assertJVersion = '3.22.0'
@@ -45,6 +46,9 @@ dependencies {
     // Selenium dependencies
     testImplementation "org.seleniumhq.selenium:selenium-java:$seleniumVersion"
     testImplementation "io.github.bonigarcia:webdrivermanager:$webdrivermanagerVersion"
+
+    // REST Assured dependency
+    testImplementation "io.rest-assured:rest-assured:$restAssuredVersion"
 
     // AssertJ dependencies
     testImplementation "org.assertj:assertj-core:3.22.0"

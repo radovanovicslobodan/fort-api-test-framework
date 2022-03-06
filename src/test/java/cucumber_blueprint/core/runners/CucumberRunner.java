@@ -11,7 +11,7 @@ import org.testng.annotations.DataProvider;
                 "cucumber_blueprint",
                 "io.cucumber.guice.InjectorSource"
         },
-        tags = "@regression",
+        tags = "@ui",
         plugin = {
                 "pretty"
         }
