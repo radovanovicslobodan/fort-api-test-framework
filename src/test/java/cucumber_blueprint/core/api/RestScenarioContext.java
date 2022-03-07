@@ -9,4 +9,5 @@ public class RestScenarioContext {
 
     public Response response;
     public RequestSpecification requestSpec;
+    public String authToken;
 }
