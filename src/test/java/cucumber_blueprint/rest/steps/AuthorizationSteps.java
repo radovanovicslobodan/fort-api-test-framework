@@ -14,13 +14,13 @@ public class AuthorizationSteps {
     private RestScenarioContext restScenarioContext;
 
     @When("Token request with username {string} and password {string} is sent")
-    public void tokenRequestWithUserAndPassword(String username, String password) {
+    public void tokenRequestWithUsernameAndPassword(String username, String password) {
         restScenarioContext.response = LoginHelpers.postLogin(username, password);
     }
 
     @Then("Response contains token")
     public void responseContainsToken() {
-        String auth_token = restScenarioContext.response.path("token").toString();
-        assertThat(auth_token).isNotNull();
+        restScenarioContext.authToken = restScenarioContext.response.path("token").toString();
+        assertThat(restScenarioContext.authToken).isNotNull();
     }
 }
