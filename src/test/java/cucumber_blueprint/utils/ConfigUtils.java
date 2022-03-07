@@ -1,30 +1,39 @@
 package cucumber_blueprint.utils;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 public class ConfigUtils {
 
-    public static Properties getConfig() throws IOException {
+    static Properties configProps;
 
-        InputStream input = new FileInputStream("src/test/resources/config.properties");
-        Properties configProps = new Properties();
-        configProps.load(input);
+    public static Properties getConfig() {
+
+        try {
+            InputStream input = new FileInputStream("src/test/resources/config.properties");
+            configProps = new Properties();
+            configProps.load(input);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return configProps;
     }
 
-    public static String getDriverType() throws IOException {
+    public static String getDriverType() {
         return getConfig().getProperty("driverType");
     }
 
-    public static String getBaseUri() throws IOException {
-        return getConfig().getProperty("baseUri");
+    public static String getBaseRestUri(){
+        return getConfig().getProperty("baseRestUri");
     }
 
-    public static String getUrl(String path) throws IOException {
+    public static String getBaseUri() {
+        return getConfig().getProperty("baseWebUri");
+    }
+
+    public static String getUrl(String path) {
         return getBaseUri() + "/#/" + path;
     }
 }

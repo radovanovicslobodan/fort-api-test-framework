@@ -32,8 +32,10 @@ dependencies {
     testImplementation "org.slf4j:slf4j-simple:$slf4jVersion"
     testImplementation "org.assertj:assertj-core:$assertJVersion"
 
-    //Lombok
+    // Lombok
     testImplementation "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
 
     // Cucumber dependencies
     testImplementation "io.cucumber:cucumber-core:$cucumberVersion"

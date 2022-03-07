@@ -2,7 +2,8 @@ package cucumber_blueprint.rest.steps;
 
 import com.google.inject.Inject;
 import cucumber_blueprint.core.api.RestScenarioContext;
-import cucumber_blueprint.rest.helpers.LoginHelpers;
+import cucumber_blueprint.rest.helpers.AuthHelpers;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -15,10 +16,15 @@ public class AuthorizationSteps {
 
     @When("Token request with username {string} and password {string} is sent")
     public void tokenRequestWithUsernameAndPassword(String username, String password) {
-        restScenarioContext.response = LoginHelpers.postLogin(username, password);
+        restScenarioContext.response = AuthHelpers.postCreateAuthToken(username, password);
     }
 
-    @Then("Response contains token")
+    @Then("Response status code is {int}")
+    public void responseStatusIs(int statusCode) {
+        assertThat(restScenarioContext.response.getStatusCode()).isEqualTo(statusCode);
+    }
+
+    @And("Response contains token")
     public void responseContainsToken() {
         restScenarioContext.authToken = restScenarioContext.response.path("token").toString();
         assertThat(restScenarioContext.authToken).isNotNull();

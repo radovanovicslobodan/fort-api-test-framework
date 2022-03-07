@@ -23,20 +23,13 @@ import static cucumber_blueprint.utils.ConfigUtils.getDriverType;
 public class SharedDriver implements WebDriver {
 
     private WebDriver delegate;
-    private String driverType;
 
     private WebDriver getDelegate() {
-
-        try {
-            driverType = getDriverType();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         if (delegate == null) {
             System.out.println("Creating lazy initialization...");
 
-            switch (driverType) {
+            switch (getDriverType()) {
                 case "headlessChrome":
                     WebDriverManager.chromedriver().setup();
                     delegate = new ChromeDriver(chromeOptions(true));
@@ -62,7 +55,7 @@ public class SharedDriver implements WebDriver {
                     break;
 
                 default:
-                    throw new IllegalStateException("Unexpected value: " + driverType);
+                    throw new IllegalStateException("Unexpected value: " + getDriverType());
             }
         }
 
