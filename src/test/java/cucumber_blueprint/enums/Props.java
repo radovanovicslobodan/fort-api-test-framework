@@ -2,7 +2,9 @@ package cucumber_blueprint.enums;
 
 public enum Props {
 
-    BASE_REST_URI("baseRestUri");
+    DRIVER_TYPE("driverType"),
+    BASE_REST_URI("baseRestUri"),
+    BASE_WEB_URI("baseWebUri");
 
     public final String prop;
 

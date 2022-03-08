@@ -1,5 +1,6 @@
 package cucumber_blueprint.core.driver;
 
+import cucumber_blueprint.enums.Props;
 import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.After;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -11,13 +12,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-import java.io.IOException;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import static cucumber_blueprint.utils.ConfigUtils.getDriverType;
+import static cucumber_blueprint.utils.ConfigUtils.getProp;
 
 @ScenarioScoped
 public class SharedDriver implements WebDriver {
@@ -29,7 +29,7 @@ public class SharedDriver implements WebDriver {
         if (delegate == null) {
             System.out.println("Creating lazy initialization...");
 
-            switch (getDriverType()) {
+            switch (getProp(Props.DRIVER_TYPE.prop)) {
                 case "headlessChrome":
                     WebDriverManager.chromedriver().setup();
                     delegate = new ChromeDriver(chromeOptions(true));
@@ -55,7 +55,7 @@ public class SharedDriver implements WebDriver {
                     break;
 
                 default:
-                    throw new IllegalStateException("Unexpected value: " + getDriverType());
+                    throw new IllegalStateException("Unexpected value: " + getProp(Props.DRIVER_TYPE.prop));
             }
         }
 
