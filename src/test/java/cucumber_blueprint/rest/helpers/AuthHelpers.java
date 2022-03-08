@@ -1,6 +1,5 @@
 package cucumber_blueprint.rest.helpers;
 
-import com.google.inject.Inject;
 import cucumber_blueprint.enums.HttpMethod;
 import cucumber_blueprint.enums.Paths;
 import cucumber_blueprint.enums.Props;
@@ -11,7 +10,6 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-import static cucumber_blueprint.utils.ConfigUtils.getBaseRestUri;
 import static cucumber_blueprint.utils.ConfigUtils.getProp;
 
 public class AuthHelpers {

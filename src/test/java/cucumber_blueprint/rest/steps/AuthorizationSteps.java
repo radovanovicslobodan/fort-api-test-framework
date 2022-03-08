@@ -2,6 +2,7 @@ package cucumber_blueprint.rest.steps;
 
 import com.google.inject.Inject;
 import cucumber_blueprint.core.api.RestScenarioContext;
+import cucumber_blueprint.enums.Paths;
 import cucumber_blueprint.rest.helpers.AuthHelpers;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -15,7 +16,7 @@ public class AuthorizationSteps {
     private RestScenarioContext restScenarioContext;
 
     @When("Token request with username {string} and password {string} is sent")
-    public void tokenRequestWithUsernameAndPassword(String username, String password) {
+    public void tokenRequestWithUsernameAndPasswordSent(String username, String password) {
         restScenarioContext.response = AuthHelpers.postCreateAuthToken(username, password);
     }
 

@@ -6,8 +6,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import java.io.IOException;
-
 import static cucumber_blueprint.utils.ConfigUtils.getUrl;
 
 public class LoginSteps extends BaseUiSteps {
@@ -15,13 +13,8 @@ public class LoginSteps extends BaseUiSteps {
     @Inject
     LoginPage loginPage;
 
-    @Given("User is not logged in")
-    public void userIsNotLoggedIn() {
-        driver.manage().deleteAllCookies();
-    }
-
     @When("User navigates to {string} page")
-    public void userNavigatesToPage(String path) throws IOException {
+    public void userNavigatesToPage(String path) {
         driver.get(getUrl(path));
     }
 

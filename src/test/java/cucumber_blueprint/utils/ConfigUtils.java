@@ -23,27 +23,11 @@ public class ConfigUtils {
         return configProps;
     }
 
-    public static String getDriverType() {
-        return getConfig().getProperty("driverType");
-    }
-
-    public static String getBaseRestUri(){
-        return getConfig().getProperty("baseRestUri");
-    }
-
-    public static String getBaseUri() {
-        return getConfig().getProperty("baseWebUri");
-    }
-
-    public static String getUrl(String path) {
-        return getBaseUri() + "/#/" + path;
-    }
-
     public static String getProp(String prop) {
         return getConfig().getProperty(prop);
     }
 
-    public static String getProp(Props prop) {
-        return getConfig().getProperty(getProp(prop));
+    public static String getUrl(String path) {
+        return getProp(Props.BASE_WEB_URI.prop) + "/#/" + path;
     }
 }
