@@ -1,5 +1,7 @@
 package cucumber_blueprint.utils;
 
+import cucumber_blueprint.enums.Props;
+
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
@@ -35,5 +37,13 @@ public class ConfigUtils {
 
     public static String getUrl(String path) {
         return getBaseUri() + "/#/" + path;
+    }
+
+    public static String getProp(String prop) {
+        return getConfig().getProperty(prop);
+    }
+
+    public static String getProp(Props prop) {
+        return getConfig().getProperty(getProp(prop));
     }
 }
