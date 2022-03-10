@@ -2,6 +2,7 @@ package cucumber_blueprint.core.driver;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import io.cucumber.guice.ScenarioScoped;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
