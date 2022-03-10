@@ -6,10 +6,14 @@ import cucumber_blueprint.ui.pages.conduit.ConduitLoginPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.JavascriptExecutor;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ConduitSteps extends BaseUiSteps {
+
+    @Inject
+    JavascriptExecutor js;
 
     @Inject
     ConduitHomePage homePage;
@@ -19,6 +23,7 @@ public class ConduitSteps extends BaseUiSteps {
 
     @When("User navigates to Conduit home page")
     public void userNavigatesToConduitHomePage() {
+        js.executeScript("document.body.style.backgroundColor='red';");
         driver.get("https://redux.productionready.io/");
     }
 
