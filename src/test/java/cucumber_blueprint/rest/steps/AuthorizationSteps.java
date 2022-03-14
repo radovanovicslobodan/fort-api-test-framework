@@ -2,7 +2,6 @@ package cucumber_blueprint.rest.steps;
 
 import com.google.inject.Inject;
 import cucumber_blueprint.core.api.RestScenarioContext;
-import cucumber_blueprint.enums.Paths;
 import cucumber_blueprint.rest.helpers.AuthHelpers;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;

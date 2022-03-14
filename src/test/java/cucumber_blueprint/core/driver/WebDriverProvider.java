@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-
 import java.time.Duration;
 
 import static cucumber_blueprint.core.driver.helpers.DriverOptions.chromeOptions;
@@ -19,7 +18,7 @@ import static cucumber_blueprint.utils.ConfigUtils.getProp;
 @ScenarioScoped
 public class WebDriverProvider implements Provider<WebDriver> {
 
-    WebDriver driver;
+    public WebDriver driver;
 
     @Override
     public WebDriver get() {
@@ -51,6 +50,7 @@ public class WebDriverProvider implements Provider<WebDriver> {
             default:
                 throw new IllegalStateException("Unexpected value: " + getProp(Props.DRIVER_TYPE.prop));
         }
+
         return driver;
     }
 
