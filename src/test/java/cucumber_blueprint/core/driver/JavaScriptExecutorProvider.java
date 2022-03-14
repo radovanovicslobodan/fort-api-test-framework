@@ -12,6 +12,6 @@ public class JavaScriptExecutorProvider implements Provider<JavascriptExecutor> 
 
     @Override
     public JavascriptExecutor get() {
-        return (JavascriptExecutor) (driver);
+        return (JavascriptExecutor) driver;
     }
 }
