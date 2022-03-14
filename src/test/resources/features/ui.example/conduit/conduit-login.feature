@@ -1,3 +1,4 @@
+@ui
 Feature: Conduit login
 
   Background:
