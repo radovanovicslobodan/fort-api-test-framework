@@ -14,6 +14,6 @@ public class WebDriverWaitProvider implements Provider<WebDriverWait> {
 
     @Override
     public WebDriverWait get() {
-        return new WebDriverWait(driver, Duration.ofSeconds(5));
+        return new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 }
