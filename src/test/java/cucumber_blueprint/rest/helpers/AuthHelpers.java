@@ -1,8 +1,8 @@
 package cucumber_blueprint.rest.helpers;
 
-import cucumber_blueprint.enums.HttpMethod;
-import cucumber_blueprint.enums.Paths;
-import cucumber_blueprint.enums.Props;
+import cucumber_blueprint.constants.HttpMethod;
+import cucumber_blueprint.constants.Paths;
+import cucumber_blueprint.constants.Props;
 import cucumber_blueprint.rest.pojos.AuthBody;
 import cucumber_blueprint.utils.ApiUtils;
 import io.restassured.builder.RequestSpecBuilder;
@@ -21,8 +21,8 @@ public class AuthHelpers {
         RequestSpecBuilder builder = new RequestSpecBuilder();
 
         // Prepare request
-        builder.setBaseUri(getProp(Props.BASE_REST_URI.prop));
-        builder.setBasePath(Paths.AUTH.path);
+        builder.setBaseUri(getProp(Props.BASE_REST_URI));
+        builder.setBasePath(Paths.AUTH);
         builder.setContentType(ContentType.JSON);
         builder.setBody(body);
         RequestSpecification requestSpec = builder.build();

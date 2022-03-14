@@ -1,4 +1,4 @@
-package cucumber_blueprint.enums;
+package cucumber_blueprint.constants;
 
 public enum StatusCode {
 

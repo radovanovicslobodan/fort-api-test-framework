@@ -1,6 +1,6 @@
 package cucumber_blueprint.utils;
 
-import cucumber_blueprint.enums.Props;
+import cucumber_blueprint.constants.Props;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -28,6 +28,6 @@ public class ConfigUtils {
     }
 
     public static String getUrl(String path) {
-        return getProp(Props.BASE_WEB_URI.prop) + "/#/" + path;
+        return getProp(Props.BASE_WEB_URI) + "/#/" + path;
     }
 }
