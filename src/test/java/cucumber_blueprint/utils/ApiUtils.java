@@ -1,6 +1,6 @@
 package cucumber_blueprint.utils;
 
-import cucumber_blueprint.enums.HttpMethod;
+import cucumber_blueprint.constants.HttpMethod;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 

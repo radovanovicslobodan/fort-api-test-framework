@@ -1,7 +1,7 @@
 package cucumber_blueprint.core.driver;
 
 import com.google.inject.Provider;
-import cucumber_blueprint.enums.Props;
+import cucumber_blueprint.constants.Props;
 import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.After;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -22,7 +22,7 @@ public class WebDriverProvider implements Provider<WebDriver> {
 
     @Override
     public WebDriver get() {
-        switch (getProp(Props.DRIVER_TYPE.prop)) {
+        switch (getProp(Props.DRIVER_TYPE)) {
             case "headlessChrome":
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver(chromeOptions(true));
@@ -48,7 +48,7 @@ public class WebDriverProvider implements Provider<WebDriver> {
                 break;
 
             default:
-                throw new IllegalStateException("Unexpected value: " + getProp(Props.DRIVER_TYPE.prop));
+                throw new IllegalStateException("Unexpected value: " + getProp(Props.DRIVER_TYPE));
         }
 
         return driver;

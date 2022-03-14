@@ -3,16 +3,18 @@ package cucumber_blueprint.core.hooks;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class Hooks {
 
     @Before(order = 0)
     public void beforeScenario(Scenario scenario) {
-        System.out.println("Scenario: " + scenario.getName() + " started");
+        log.info("Scenario: " + scenario.getName() + " started");
     }
 
     @After(order = 0)
     public void afterScenario(Scenario scenario) {
-        System.out.println("Scenario: " + scenario.getName() + " finished");
+        log.info("Scenario: " + scenario.getName() + " finished");
     }
 }
