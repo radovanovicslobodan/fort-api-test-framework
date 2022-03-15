@@ -6,6 +6,7 @@ import cucumber_blueprint.core.driver.FluentWaitProvider;
 import cucumber_blueprint.core.driver.JavaScriptExecutorProvider;
 import cucumber_blueprint.core.driver.WebDriverProvider;
 import cucumber_blueprint.core.driver.WebDriverWaitProvider;
+import cucumber_blueprint.core.driver.helpers.DriverHelpers;
 import io.cucumber.guice.ScenarioScoped;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +21,7 @@ public class AppModule extends AbstractModule {
         bind(WebDriverWait.class).toProvider(WebDriverWaitProvider.class);
         bind(FluentWait.class).toProvider(FluentWaitProvider.class);
         bind(JavascriptExecutor.class).toProvider(JavaScriptExecutorProvider.class);
+        bind(DriverHelpers.class).in(ScenarioScoped.class);
     }
 }
 
