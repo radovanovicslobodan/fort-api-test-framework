@@ -1,13 +1,12 @@
 package cucumber_blueprint.core.driver.helpers;
 
 import com.google.inject.Inject;
-import io.cucumber.guice.ScenarioScoped;
 import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.html5.LocalStorage;
+import org.openqa.selenium.html5.WebStorage;
 
 import java.io.File;
 import java.io.InputStream;
@@ -18,15 +17,15 @@ import java.nio.file.Paths;
 public class DriverHelpers {
 
     @Inject
-    WebDriver driver;
+    TakesScreenshot takesScreenshot;
 
     @Inject
-    WebDriverWait wait;
+    WebStorage webStorage;
 
     private String screenshotPath = "build/allure-results/";
 
     public void takeScreenshot(String scenarioName) {
-        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File scrFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(scrFile, new File(screenshotPath + scenarioName + ".png"));
         } catch (Exception e) {
@@ -42,6 +41,14 @@ public class DriverHelpers {
     }
 
     // getItemFromLocalStorage
+    public String getItemFromLocalStorage(String key) {
+        LocalStorage localStorage = webStorage.getLocalStorage();
+        return localStorage.getItem(key);
+    }
 
     // addItemToLocalStorage
+    public void setItemToLocalStorage(String key, String value) {
+        LocalStorage localStorage = webStorage.getLocalStorage();
+        localStorage.setItem(key, value);
+    }
 }

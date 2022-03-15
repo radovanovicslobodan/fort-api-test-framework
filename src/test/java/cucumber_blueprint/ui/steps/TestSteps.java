@@ -51,6 +51,7 @@ public class TestSteps extends BaseUiSteps {
     @When("Spotify page is opened")
     public void openSpotifyPage() {
         driver.get("https://open.spotify.com/");
+        driverHelpers.setItemToLocalStorage("testkey", "testvalue");
     }
 
     @Then("Spotify logo is present")
@@ -58,6 +59,6 @@ public class TestSteps extends BaseUiSteps {
 //        assertions.assertThat(spotifyPage.checkLogoFluent().isDisplayed());
 //        assertions.assertThat(spotifyPage.checkLogoFluent().isEnabled());
 //        assertions.assertAll();
-        assertThat(false);
+        assertThat(false).isTrue();
     }
 }

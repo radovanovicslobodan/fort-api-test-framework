@@ -17,7 +17,7 @@ import org.testng.annotations.DataProvider;
         }
 )
 @Slf4j
-public class CucumberRunner extends AbstractTestNGCucumberTests {
+public class TestRunner extends AbstractTestNGCucumberTests {
     @Override
     @DataProvider(parallel = true)
     public Object[][] scenarios() {
