@@ -1,12 +1,8 @@
 package cucumber_blueprint.core.driver;
 
-import com.google.inject.Inject;
 import com.google.inject.Provider;
 import cucumber_blueprint.constants.Props;
-import cucumber_blueprint.core.driver.helpers.DriverHelpers;
 import io.cucumber.guice.ScenarioScoped;
-import io.cucumber.java.After;
-import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,9 +18,6 @@ import static cucumber_blueprint.utils.ConfigUtils.getProp;
 public class WebDriverProvider implements Provider<WebDriver> {
 
     public WebDriver driver;
-
-    @Inject
-    DriverHelpers driverHelpers;
 
     @Override
     public WebDriver get() {
@@ -60,16 +53,19 @@ public class WebDriverProvider implements Provider<WebDriver> {
         return driver;
     }
 
-    @After
-    public void tearDown(Scenario scenario) {
-//        if (scenario.isFailed() && driver != null) {
-//            driverHelpers.takeScreenshot(scenario.getName());
-//            driverHelpers.addScreenshotAllure(scenario.getName());
+//    public void takeScreenshot(String scenarioName) {
+//        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//        try {
+//            FileUtils.copyFile(scrFile, new File(screenshotPath + scenarioName + ".png"));
+//        } catch (Exception e) {
 //        }
-
-        if (driver != null) {
-            driver.manage().deleteAllCookies();
-            driver.quit();
-        }
-    }
+//    }
+//
+//    public void addScreenshotAllure(String scenarioName) {
+//        Path content = Paths.get(screenshotPath + scenarioName + ".png");
+//        try (InputStream is = Files.newInputStream(content)) {
+//            Allure.addAttachment(scenarioName, is);
+//        } catch (Exception e) {
+//        }
+//    }
 }

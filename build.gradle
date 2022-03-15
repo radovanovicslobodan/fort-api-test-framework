@@ -62,6 +62,10 @@ dependencies {
 
     // Guice dependencies
     testImplementation "com.google.inject:guice:$guiceVersion"
+
+    // GSON
+    testImplementation group: 'com.google.code.gson', name: 'gson', version: '2.9.0'
+
 }
 
 test {
