@@ -6,7 +6,7 @@ import io.cucumber.java.Scenario;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class Hooks {
+public class GlobalHooks {
 
     @Before(order = 0)
     public void beforeScenario(Scenario scenario) {

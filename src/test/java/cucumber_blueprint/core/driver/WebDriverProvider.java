@@ -3,7 +3,6 @@ package cucumber_blueprint.core.driver;
 import com.google.inject.Provider;
 import cucumber_blueprint.constants.Props;
 import io.cucumber.guice.ScenarioScoped;
-import io.cucumber.java.After;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -54,11 +53,19 @@ public class WebDriverProvider implements Provider<WebDriver> {
         return driver;
     }
 
-    @After
-    public void tearDown() {
-        if (driver != null) {
-            driver.manage().deleteAllCookies();
-            driver.quit();
-        }
-    }
+//    public void takeScreenshot(String scenarioName) {
+//        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//        try {
+//            FileUtils.copyFile(scrFile, new File(screenshotPath + scenarioName + ".png"));
+//        } catch (Exception e) {
+//        }
+//    }
+//
+//    public void addScreenshotAllure(String scenarioName) {
+//        Path content = Paths.get(screenshotPath + scenarioName + ".png");
+//        try (InputStream is = Files.newInputStream(content)) {
+//            Allure.addAttachment(scenarioName, is);
+//        } catch (Exception e) {
+//        }
+//    }
 }

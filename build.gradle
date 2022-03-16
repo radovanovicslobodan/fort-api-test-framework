@@ -24,6 +24,7 @@ ext {
     slf4jVersion = '1.7.36'
     gherkinVersion = '22.0.0'
     assertJVersion = '3.22.0'
+    allureVersion = '2.17.2'
     guiceVersion = '5.1.0'
 }
 
@@ -52,11 +53,19 @@ dependencies {
     // REST Assured dependency
     testImplementation "io.rest-assured:rest-assured:$restAssuredVersion"
 
+    //Allure
+    testImplementation "io.qameta.allure:allure-cucumber7-jvm:$allureVersion"
+    testImplementation "io.qameta.allure:allure-rest-assured:$allureVersion"
+
     // AssertJ dependencies
     testImplementation "org.assertj:assertj-core:3.22.0"
 
     // Guice dependencies
     testImplementation "com.google.inject:guice:$guiceVersion"
+
+    // GSON
+    testImplementation group: 'com.google.code.gson', name: 'gson', version: '2.9.0'
+
 }
 
 test {
