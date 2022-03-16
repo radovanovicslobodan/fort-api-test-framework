@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -61,7 +62,7 @@ public class SaucedemoInventoryPage extends BasePage {
     }
 
     public List<Product> getProducts() {
-        LinkedList<Product> products = new LinkedList<>();
+        List<Product> products = new ArrayList<>();
         for (WebElement productWebElement: inventoryWebElements) {
             try {
                 String name = productWebElement.findElement(By.className(PRODUCT_NAME_CLASSNAME_LOCATOR)).getText();
