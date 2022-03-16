@@ -3,7 +3,6 @@ package cucumber_blueprint.core.guice;
 import com.google.inject.AbstractModule;
 
 import cucumber_blueprint.core.driver.*;
-import cucumber_blueprint.core.driver.helpers.DriverHelpers;
 import io.cucumber.guice.ScenarioScoped;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TakesScreenshot;

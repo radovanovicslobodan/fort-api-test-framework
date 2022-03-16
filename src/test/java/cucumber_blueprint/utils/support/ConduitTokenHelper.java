@@ -1,4 +1,4 @@
-package cucumber_blueprint.utils.helpers;
+package cucumber_blueprint.utils.support;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
