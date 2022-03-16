@@ -1,4 +1,6 @@
-Feature: SauceDemo Login
+@ui
+Feature: SauceDemo Tests
+
   Background:
     Given I am on the SauceDemo login page
 
@@ -15,3 +17,9 @@ Feature: SauceDemo Login
     Then I can see the inventory page
     Given I logout from the site
     Then I am redirected to the SauceDemo login page
+
+  Scenario: Sort products by Price (low to high)
+    Given I authenticate using valid credentials
+    Then I can see the inventory page
+    Given I sort the products using criteria "Price (low to high)" using the sort dropdown
+    Then The products are sorted by price (low to high)
