@@ -1,7 +1,9 @@
 package cucumber_blueprint.ui.steps;
 
+import com.google.common.collect.Ordering;
 import com.google.inject.Inject;
 import cucumber_blueprint.constants.Credentials;
+import cucumber_blueprint.ui.pages.saucedemo.Product;
 import cucumber_blueprint.ui.pages.saucedemo.SaucedemoBurgerMenuComponent;
 import cucumber_blueprint.ui.pages.saucedemo.SaucedemoInventoryPage;
 import cucumber_blueprint.ui.pages.saucedemo.SaucedemoLoginPage;
@@ -9,6 +11,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -53,7 +58,7 @@ public class SaucedemoSteps extends BaseUiSteps {
         } catch (TimeoutException timeoutException) {
             Assert.fail("Error message did not appear on the LoginPage");
         }
-        assertThat(expectedErrorMessage.equalsIgnoreCase(errorMessage)).isEqualTo("An error message indicating the invalid login should be displayed");
+        assertThat(errorMessage).isEqualTo(expectedErrorMessage);
     }
 
     @Given("I logout from the site")
@@ -64,5 +69,19 @@ public class SaucedemoSteps extends BaseUiSteps {
     @Then("I am redirected to the SauceDemo login page")
     public void iAmRedirectedToSaucedemoLoginPage() {
         saucedemoLoginPage.waitUntilPageIsLoaded();
+    }
+
+    @Given("I sort the products using criteria {string} using the sort dropdown")
+    public void iSortProductsUsingDropdown(final String sortCriteria) {
+        saucedemoInventoryPage.sortProductsByCriteria(sortCriteria);
+    }
+
+    @Then("The products are sorted by price \\(low to high)")
+    public void productsAreSortedByPriceLowToHigh() {
+        List<Product> products = saucedemoInventoryPage.getProducts();
+
+        List<Double> prices = products.stream().map(Product::getPrice).collect(Collectors.toList());
+
+        assertThat(Ordering.natural().isOrdered(prices));
     }
 }
