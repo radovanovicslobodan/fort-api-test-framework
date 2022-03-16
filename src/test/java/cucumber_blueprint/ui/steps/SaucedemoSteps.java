@@ -82,6 +82,6 @@ public class SaucedemoSteps extends BaseUiSteps {
 
         List<Double> prices = products.stream().map(Product::getPrice).collect(Collectors.toList());
 
-        assertThat(Ordering.natural().isOrdered(prices));
+        assertThat(Ordering.natural().isOrdered(prices)).isTrue();
     }
 }
