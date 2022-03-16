@@ -1,4 +1,4 @@
-package cucumber_blueprint.core.driver.helpers;
+package cucumber_blueprint.core.driver.support;
 
 import com.google.inject.Inject;
 import io.qameta.allure.Allure;
