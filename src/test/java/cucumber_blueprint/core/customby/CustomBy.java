@@ -20,6 +20,7 @@ public class CustomBy {
             this.testId = testId;
         }
 
+        @Override
         public WebElement findElement(SearchContext context) {
             return context.findElement(By.cssSelector(String.format("[data-test='%s']", testId)));
         }
