@@ -32,7 +32,7 @@ public class CustomBy {
 
         @Override
         public String toString() {
-            return "By test-id: " + testId;
+            return "By.testId: " + testId;
         }
     }
 }
