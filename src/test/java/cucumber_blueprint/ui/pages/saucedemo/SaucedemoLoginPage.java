@@ -1,6 +1,7 @@
 package cucumber_blueprint.ui.pages.saucedemo;
 
 import com.google.inject.Inject;
+import cucumber_blueprint.core.customby.FindByTestId;
 import cucumber_blueprint.ui.pages.BasePage;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +17,8 @@ public class SaucedemoLoginPage extends BasePage {
     @FindBy(id = "login-button")
     WebElement loginButton;
 
-    @FindBy(id = "user-name")
+    //    @FindBy(id = "user-name")
+    @FindByTestId("username")
     WebElement userNameTextInput;
 
     @FindBy(id = "password")

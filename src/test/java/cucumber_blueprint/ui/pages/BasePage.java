@@ -1,8 +1,10 @@
 package cucumber_blueprint.ui.pages;
 
 import com.google.inject.Inject;
+import cucumber_blueprint.core.customby.CustomFieldDecorator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
 
 public abstract class BasePage {
 
@@ -11,7 +13,7 @@ public abstract class BasePage {
     @Inject
     public BasePage(WebDriver driver){
         this.driver = driver;
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(new CustomFieldDecorator(new DefaultElementLocatorFactory(driver)), this);
     }
 
     public abstract void waitUntilPageIsLoaded();
