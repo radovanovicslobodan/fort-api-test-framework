@@ -8,6 +8,7 @@ import org.aeonbits.owner.Config;
 public interface EnvConfig extends Config {
 
     @Config.Key("driverType")
+    @DefaultValue("chrome")
     String driverType();
 
     @Config.Key("baseRestUri")
