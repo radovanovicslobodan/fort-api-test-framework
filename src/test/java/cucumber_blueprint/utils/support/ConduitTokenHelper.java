@@ -33,8 +33,7 @@ public class ConduitTokenHelper {
                 .build();
 
         jsonPathEvaluator = ApiUtils.sendRequest(requestSpec, HttpMethod.POST).jsonPath();
-        System.out.println("json below");
-        System.out.println(jsonPathEvaluator);
+
         return jsonPathEvaluator.get("jwt");
     }
 }

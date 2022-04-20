@@ -1,6 +1,7 @@
 package cucumber_blueprint.utils;
 
 import cucumber_blueprint.constants.Props;
+import org.aeonbits.owner.ConfigCache;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -30,4 +31,7 @@ public class ConfigUtils {
     public static String getUrl(String path) {
         return getProp(Props.BASE_WEB_URI) + "/#/" + path;
     }
+
+    public static EnvConfig envConfig = ConfigCache.getOrCreate(EnvConfig.class);
+
 }
