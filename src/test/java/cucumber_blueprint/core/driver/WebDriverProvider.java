@@ -12,6 +12,7 @@ import java.time.Duration;
 
 import static cucumber_blueprint.core.driver.support.DriverOptions.chromeOptions;
 import static cucumber_blueprint.core.driver.support.DriverOptions.firefoxOptions;
+import static cucumber_blueprint.utils.ConfigUtils.envConfig;
 import static cucumber_blueprint.utils.ConfigUtils.getProp;
 
 @ScenarioScoped
@@ -21,7 +22,7 @@ public class WebDriverProvider implements Provider<WebDriver> {
 
     @Override
     public WebDriver get() {
-        switch (getProp(Props.DRIVER_TYPE)) {
+        switch (envConfig.driverType()) {
             case "headlessChrome":
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver(chromeOptions(true));
@@ -47,7 +48,7 @@ public class WebDriverProvider implements Provider<WebDriver> {
                 break;
 
             default:
-                throw new IllegalStateException("Unexpected value: " + getProp(Props.DRIVER_TYPE));
+                throw new IllegalStateException("Unexpected value: " + envConfig.driverType());
         }
 
         return driver;
