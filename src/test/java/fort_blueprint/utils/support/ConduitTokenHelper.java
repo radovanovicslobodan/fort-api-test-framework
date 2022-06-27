@@ -2,9 +2,9 @@ package fort_blueprint.utils.support;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import fort_blueprint.constants.HttpMethod;
 import fort_blueprint.core.api.SpecBuilder;
 import fort_blueprint.utils.ApiUtils;
+import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
 import io.restassured.specification.RequestSpecification;
 
@@ -32,7 +32,7 @@ public class ConduitTokenHelper {
                 .setBody(payload)
                 .build();
 
-        jsonPathEvaluator = ApiUtils.sendRequest(requestSpec, HttpMethod.POST).jsonPath();
+        jsonPathEvaluator = ApiUtils.sendRequest(requestSpec, Method.POST).jsonPath();
 
         return jsonPathEvaluator.get("jwt");
     }

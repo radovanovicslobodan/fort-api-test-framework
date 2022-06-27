@@ -1,6 +1,6 @@
 package fort_blueprint.utils;
 
-import fort_blueprint.constants.HttpMethod;
+import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.given;
 
 public class ApiUtils {
 
-    public static Response sendRequest(RequestSpecification requestSpec, HttpMethod requestMethod) {
+    public static Response sendRequest(RequestSpecification requestSpec, Method requestMethod) {
 
         Response response;
 
