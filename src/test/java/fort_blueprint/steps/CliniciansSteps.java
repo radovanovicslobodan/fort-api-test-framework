@@ -2,20 +2,19 @@ package fort_blueprint.steps;
 
 import com.google.inject.Inject;
 import fort_blueprint.core.api.ScenarioContext;
-import fort_blueprint.utils.ApiUtils;
 import fort_blueprint.utils.AuthUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.http.Method;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 
 import static fort_blueprint.constants.ContextProps.AUTH_TOKEN;
 import static fort_blueprint.constants.ContextProps.RESPONSE;
 import static fort_blueprint.constants.Credentials.USER_EMAIL;
 import static fort_blueprint.constants.Credentials.USER_PASSWORD;
-import static fort_blueprint.core.api.SpecBuilder.requestSpecHelper;
+import static fort_blueprint.constants.Path.CLINICIANS;
+import static fort_blueprint.constants.Url.BASE_URL;
+import static fort_blueprint.core.request_builder.RequestBuilder.makeGetRequest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CliniciansSteps {
@@ -36,11 +35,17 @@ public class CliniciansSteps {
 //                .then()
 //                .extract().response();
 
-        RequestSpecification requestSpec = requestSpecHelper(context.get(AUTH_TOKEN), "clinicians");
+//        RequestSpecification requestSpec = requestSpecHelper(context.get(AUTH_TOKEN), "clinicians");
+//
+//        Response response1 = ApiUtils.sendRequest(requestSpec, Method.GET);
 
-        Response response1 = ApiUtils.sendRequest(requestSpec, Method.GET);
+        Response response2 = makeGetRequest()
+                .withBaseUri(BASE_URL)
+                .withBasePath(CLINICIANS)
+                .withAuthToken(context.get(AUTH_TOKEN))
+                .send();
 
-        context.set(RESPONSE, response1);
+        context.set(RESPONSE, response2);
     }
 
     @Then("Status code is 200")

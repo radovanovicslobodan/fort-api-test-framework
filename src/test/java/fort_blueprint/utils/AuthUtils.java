@@ -1,6 +1,6 @@
 package fort_blueprint.utils;
 
-import fort_blueprint.constants.Paths;
+import fort_blueprint.constants.Path;
 import fort_blueprint.core.api.SpecBuilder;
 import fort_blueprint.pojo.AuthBody;
 import io.restassured.http.ContentType;
@@ -20,7 +20,7 @@ public class AuthUtils {
 
         RequestSpecification requestSpec = SpecBuilder
                 .requestSpecBuilder()
-                .setBasePath(Paths.AUTH)
+                .setBasePath(Path.AUTH)
                 .setBody(body)
                 .build();
 
