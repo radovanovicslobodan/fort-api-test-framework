@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.aeonbits.owner.ConfigCache;
 
 @Slf4j
-public class GlobalHooks {
+public class Hooks {
     public static EnvConfig envConfig;
 
     @BeforeAll

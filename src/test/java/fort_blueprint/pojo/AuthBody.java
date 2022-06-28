@@ -1,4 +1,4 @@
-package fort_blueprint.rest.pojos;
+package fort_blueprint.pojo;
 
 import lombok.Getter;
 import lombok.Setter;
