@@ -1,32 +1,33 @@
-package fort_blueprint.rest.steps;
+package fort_blueprint.steps;
 
 import com.google.inject.Inject;
-import fort_blueprint.core.api.RestScenarioContext;
-import fort_blueprint.rest.support.AuthHelpers;
+import fort_blueprint.core.api.ScenarioContext;
+import fort_blueprint.utils.AuthUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static fort_blueprint.constants.ContextProps.RESPONSE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AuthorizationSteps {
 
     @Inject
-    private RestScenarioContext restScenarioContext;
+    private ScenarioContext context;
 
     @When("Token request with username {string} and password {string} is sent")
     public void tokenRequestWithUsernameAndPasswordSent(String username, String password) {
-        restScenarioContext.response = AuthHelpers.postCreateAuthToken(username, password);
+        context.set(RESPONSE, AuthUtils.postCreateAuthToken(username, password));
     }
 
     @Then("Response status code is {int}")
     public void responseStatusIs(int statusCode) {
-        assertThat(restScenarioContext.response.getStatusCode()).isEqualTo(statusCode);
+        assertThat(context.get(RESPONSE).getStatusCode()).isEqualTo(statusCode);
     }
 
     @And("Response contains token")
     public void responseContainsToken() {
-        restScenarioContext.authToken = restScenarioContext.response.path("token").toString();
-        assertThat(restScenarioContext.authToken).isNotNull();
+        String token = context.get(RESPONSE).path("token").toString();
+        assertThat(token).isNotNull();
     }
 }

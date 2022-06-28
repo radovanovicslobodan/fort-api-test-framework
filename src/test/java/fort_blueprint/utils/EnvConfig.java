@@ -14,6 +14,9 @@ public interface EnvConfig extends Config {
     @Config.Key("baseRestUri")
     String baseRestUri();
 
+    @Config.Key("baseUri")
+    String baseUri();
+
     @Config.Key("baseWebUri")
     String baseWebUri();
 }

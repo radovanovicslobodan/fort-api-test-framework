@@ -1,9 +1,7 @@
 package fort_blueprint.constants;
 
 public class Credentials {
-
-    public static final String SAUCEDEMO_VALID_USERNAME = "standard_user";
-    public static final String SAUCEDEMO_VALID_PASSWORD = "secret_sauce";
-    public static final String SAUCEDEMO_INVALID_USERNAME = "invalid_user";
-    public static final String SAUCEDEMO_INVALID_PASSWORD = "invalid_password";
+    public static final String USER_EMAIL = "user@example.com";
+    public static final String USER_PASSWORD = "changeme";
+    public static final String OAUTH_URL = "https://api.example.com/auth/realms/demo/protocol/openid-connect/token";
 }

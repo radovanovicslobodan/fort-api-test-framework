@@ -10,34 +10,17 @@ public class ApiUtils {
 
     public static Response sendRequest(RequestSpecification requestSpec, Method requestMethod) {
 
-        Response response;
-
-        switch (requestMethod) {
-            case GET:
-                response = given().spec(requestSpec).log().all().relaxedHTTPSValidation().when()
-                        .get().then().log().all().extract().response();
-                break;
-
-            case POST:
-                response = given().spec(requestSpec).log().all().relaxedHTTPSValidation().when()
-                        .post().then().log().all().extract().response();
-                break;
-
-            case PUT:
-                response = given().spec(requestSpec).log().all().relaxedHTTPSValidation().when()
-                        .put().then().log().all().extract().response();
-                break;
-
-            case DELETE:
-                response = given().spec(requestSpec).log().all().relaxedHTTPSValidation().when()
-                        .delete().then().log().all().extract().response();
-                break;
-
-            default:
-                throw new IllegalStateException(
-                        "Unexpected value: " + requestMethod);
-
-        }
-        return response;
+        return switch (requestMethod) {
+            case GET -> given().spec(requestSpec).log().all().relaxedHTTPSValidation().when()
+                    .get().then().log().all().extract().response();
+            case POST -> given().spec(requestSpec).log().all().relaxedHTTPSValidation().when()
+                    .post().then().log().all().extract().response();
+            case PUT -> given().spec(requestSpec).log().all().relaxedHTTPSValidation().when()
+                    .put().then().log().all().extract().response();
+            case DELETE -> given().spec(requestSpec).log().all().relaxedHTTPSValidation().when()
+                    .delete().then().log().all().extract().response();
+            default -> throw new IllegalStateException(
+                    "Unexpected value: " + requestMethod);
+        };
     }
 }
