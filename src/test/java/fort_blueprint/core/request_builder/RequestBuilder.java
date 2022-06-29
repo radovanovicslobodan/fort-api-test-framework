@@ -4,9 +4,6 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public final class RequestBuilder implements RequestCreator {
     RequestSpecification spec;
 
@@ -27,9 +24,9 @@ public final class RequestBuilder implements RequestCreator {
 
     @Override
     public RequestCreator withPathParam(String key, String value) {
-        Map<String, String> param = new HashMap<>();
-        param.put(key, value);
-        this.spec.pathParams(param);
+//        Map<String, String> param = new HashMap<>();
+//        param.put(key, value);
+        this.spec.pathParams(key, value);
         return this;
     }
 
