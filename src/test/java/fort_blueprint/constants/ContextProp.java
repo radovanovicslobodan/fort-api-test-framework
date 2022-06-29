@@ -2,7 +2,7 @@ package fort_blueprint.constants;
 
 import io.restassured.response.Response;
 
-public class ContextProps {
+public class ContextProp {
     public static final class Key<T> {
     }
 

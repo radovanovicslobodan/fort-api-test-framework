@@ -1,6 +1,6 @@
 package fort_blueprint.core.hooks;
 
-import fort_blueprint.utils.EnvConfig;
+import fort_blueprint.core.config_reader.EnvConfig;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
@@ -13,7 +13,7 @@ public class Hooks {
     public static EnvConfig envConfig;
 
     @BeforeAll
-    public static void beforeAllScenarios(){
+    public static void beforeAllScenarios() {
         envConfig = ConfigCache.getOrCreate(EnvConfig.class);
     }
 

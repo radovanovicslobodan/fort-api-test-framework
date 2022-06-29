@@ -1,6 +1,6 @@
 package fort_blueprint.core.api;
 
-import fort_blueprint.constants.ContextProps.Key;
+import fort_blueprint.constants.ContextProp.Key;
 import io.cucumber.guice.ScenarioScoped;
 
 import java.util.HashMap;
