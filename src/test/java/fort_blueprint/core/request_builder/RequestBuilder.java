@@ -24,8 +24,6 @@ public final class RequestBuilder implements RequestCreator {
 
     @Override
     public RequestCreator withPathParam(String key, String value) {
-//        Map<String, String> param = new HashMap<>();
-//        param.put(key, value);
         this.spec.pathParams(key, value);
         return this;
     }
