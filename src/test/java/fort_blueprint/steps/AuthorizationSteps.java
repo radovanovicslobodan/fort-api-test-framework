@@ -2,6 +2,7 @@ package fort_blueprint.steps;
 
 import com.google.inject.Inject;
 import fort_blueprint.core.api.ScenarioContext;
+import fort_blueprint.utils.ApiUtils;
 import fort_blueprint.utils.AuthUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -29,5 +30,10 @@ public class AuthorizationSteps {
     public void responseContainsToken() {
         String token = context.get(RESPONSE).path("token").toString();
         assertThat(token).isNotNull();
+    }
+
+    @When("I test some method")
+    public void iTestSomeMethod() {
+        ApiUtils.getClinicianId();
     }
 }
