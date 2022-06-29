@@ -13,7 +13,7 @@ import static fort_blueprint.constants.ContextProps.RESPONSE;
 import static fort_blueprint.constants.Credentials.USER_EMAIL;
 import static fort_blueprint.constants.Credentials.USER_PASSWORD;
 import static fort_blueprint.constants.Path.CLINICIANS;
-import static fort_blueprint.constants.Url.BASE_URL;
+import static fort_blueprint.constants.Url.BASE_URI;
 import static fort_blueprint.core.request_builder.RequestBuilder.makeGetRequest;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -28,24 +28,12 @@ public class CliniciansSteps {
 
     @When("User sends request for clinicians list")
     public void userSendsRequestForCliniciansList() {
-//        Response response = given()
-//                .header("Authorization", "Bearer " + context.get(AUTH_TOKEN))
-//                .when()
-//                .get("https://dev.forthealth.com/api/v1/clinicians")
-//                .then()
-//                .extract().response();
-
-//        RequestSpecification requestSpec = requestSpecHelper(context.get(AUTH_TOKEN), "clinicians");
-//
-//        Response response1 = ApiUtils.sendRequest(requestSpec, Method.GET);
-
-        Response response2 = makeGetRequest()
-                .withBaseUri(BASE_URL)
+        Response response = makeGetRequest(BASE_URI)
                 .withBasePath(CLINICIANS)
                 .withAuthToken(context.get(AUTH_TOKEN))
                 .send();
 
-        context.set(RESPONSE, response2);
+        context.set(RESPONSE, response);
     }
 
     @Then("Status code is 200")

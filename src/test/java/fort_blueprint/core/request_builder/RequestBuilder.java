@@ -7,20 +7,17 @@ import io.restassured.specification.RequestSpecification;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class RequestBuilder implements RequestBase, RequestCreator {
-    RequestSpecification spec = RestAssured.with();
+public final class RequestBuilder implements RequestCreator {
+    RequestSpecification spec;
 
     // Private constructor to prevent direct object creation
-    private RequestBuilder() {
+    private RequestBuilder(String uri) {
+        this.spec = RestAssured.with();
+        this.spec.baseUri(uri);
     }
 
-    public static RequestBase makeGetRequest() {
-        return new RequestBuilder();
-    }
-
-    public RequestCreator withBaseUri(String path) {
-        this.spec.baseUri(path);
-        return this;
+    public static RequestCreator makeGetRequest(String uri) {
+        return new RequestBuilder(uri);
     }
 
     public RequestCreator withBasePath(String path) {
