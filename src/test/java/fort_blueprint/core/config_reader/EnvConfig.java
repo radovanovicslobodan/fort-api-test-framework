@@ -1,4 +1,4 @@
-package fort_blueprint.utils;
+package fort_blueprint.core.config_reader;
 
 import org.aeonbits.owner.Config;
 

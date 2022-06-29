@@ -7,7 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import static fort_blueprint.constants.ContextProps.RESPONSE;
+import static fort_blueprint.constants.ContextProp.RESPONSE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AuthorizationSteps {

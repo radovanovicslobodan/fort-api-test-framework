@@ -4,7 +4,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
-import static fort_blueprint.utils.ConfigUtils.envConfig;
+import static fort_blueprint.core.config_reader.ConfigReader.envConfig;
 
 public class SpecBuilder {
 

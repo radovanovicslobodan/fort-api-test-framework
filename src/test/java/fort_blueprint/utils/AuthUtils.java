@@ -9,8 +9,8 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-import static fort_blueprint.constants.Credentials.OAUTH_URL;
-import static io.restassured.RestAssured.given;
+import static fort_blueprint.constants.Url.OAUTH_URL;
+import static io.restassured.RestAssured.with;
 
 public class AuthUtils {
 
@@ -28,7 +28,7 @@ public class AuthUtils {
     }
 
     public static String getAccessToken(String email, String password) {
-        Response response = given()
+        Response response = with()
                 .contentType(ContentType.URLENC)
                 .formParam("grant_type", "password")
                 .formParam("client_id", "qa-client-fort")

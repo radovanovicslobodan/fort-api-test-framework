@@ -8,10 +8,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 
-import static fort_blueprint.constants.ContextProps.AUTH_TOKEN;
-import static fort_blueprint.constants.ContextProps.RESPONSE;
-import static fort_blueprint.constants.Credentials.USER_EMAIL;
-import static fort_blueprint.constants.Credentials.USER_PASSWORD;
+import static fort_blueprint.constants.ContextProp.AUTH_TOKEN;
+import static fort_blueprint.constants.ContextProp.RESPONSE;
+import static fort_blueprint.constants.Credential.USER_EMAIL;
+import static fort_blueprint.constants.Credential.USER_PASSWORD;
 import static fort_blueprint.constants.Path.CLINICIANS;
 import static fort_blueprint.constants.Url.BASE_URI;
 import static fort_blueprint.core.request_builder.RequestBuilder.makeGetRequest;
