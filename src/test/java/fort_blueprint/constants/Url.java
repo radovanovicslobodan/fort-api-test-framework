@@ -1,5 +1,5 @@
 package fort_blueprint.constants;
 
 public class Url {
-    public static final String BASE_URL = "https://api.example.com/api/v1";
+    public static final String BASE_URI = "https://api.example.com/api/v1";
 }
