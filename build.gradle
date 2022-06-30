@@ -81,3 +81,5 @@ task cucumber(type: Test) {
     scanForTestClasses = false
     systemProperties(System.properties)
 }
+sourceCompatibility = JavaVersion.VERSION_14
+targetCompatibility = JavaVersion.VERSION_14
