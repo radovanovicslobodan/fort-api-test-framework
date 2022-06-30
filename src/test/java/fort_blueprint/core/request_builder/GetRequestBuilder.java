@@ -4,32 +4,32 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-public final class RequestBuilder implements RequestCreator {
+public final class GetRequestBuilder implements GetRequestCreator {
     RequestSpecification spec;
 
     // Private constructor to prevent direct object creation
-    private RequestBuilder(String uri) {
+    private GetRequestBuilder(String uri) {
         this.spec = RestAssured.with();
         this.spec.baseUri(uri);
     }
 
-    public static RequestCreator makeGetRequest(String uri) {
-        return new RequestBuilder(uri);
+    public static GetRequestCreator makeGetRequest(String uri) {
+        return new GetRequestBuilder(uri);
     }
 
-    public RequestCreator withBasePath(String path) {
+    public GetRequestCreator withBasePath(String path) {
         this.spec.basePath(path);
         return this;
     }
 
     @Override
-    public RequestCreator withPathParam(String key, String value) {
+    public GetRequestCreator withPathParam(String key, String value) {
         this.spec.pathParams(key, value);
         return this;
     }
 
     @Override
-    public RequestCreator withAuthToken(String token) {
+    public GetRequestCreator withAuthToken(String token) {
         this.spec.header("Authorization", "Bearer " + token);
         return this;
     }

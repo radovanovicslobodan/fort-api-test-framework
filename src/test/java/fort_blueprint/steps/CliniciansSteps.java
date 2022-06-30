@@ -15,7 +15,7 @@ import static fort_blueprint.constants.Credential.USER_PASSWORD;
 import static fort_blueprint.constants.Path.CLINICIAN;
 import static fort_blueprint.constants.Path.CLINICIANS;
 import static fort_blueprint.constants.Url.BASE_URI;
-import static fort_blueprint.core.request_builder.RequestBuilder.makeGetRequest;
+import static fort_blueprint.core.request_builder.GetRequestBuilder.makeGetRequest;
 import static fort_blueprint.utils.ApiUtils.getClinicianId;
 import static org.assertj.core.api.Assertions.assertThat;
 
