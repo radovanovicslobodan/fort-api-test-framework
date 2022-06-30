@@ -1,5 +1,7 @@
 package fort_blueprint.utils;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -50,5 +52,11 @@ public class ApiUtils {
                 }
         );
         return cliniciansList.get(0).getId();
+    }
+
+    public static String getCaregiverId(String token) {
+        DecodedJWT jwt = JWT.decode(token);
+        String caregiverId = String.valueOf(jwt.getClaim("userId"));
+        return caregiverId;
     }
 }
